@@ -1,6 +1,11 @@
 const portfolio = {
   tagline: "Finance and Operations Analyst with 2+ years of experience turning financial data, KPI reporting and operational workflows into reliable business decisions.",
-  about: "I work at the intersection of finance, data and operations. In private-markets intelligence, I review high-volume transaction data, build financial models and forecasts, automate recurring reporting, and support enterprise clients from onboarding through go-live. My focus is simple: make information more accurate, processes more scalable, and decisions easier to act on.",
+  about: [
+    "I work where finance, data, and operations collide — where messy information has to become something accurate, structured, and usable by someone under time pressure.",
+    "At PrivateCircle, that means living inside high-volume investment and transaction data. I've reviewed 1,000+ investment transactions, worked across 400+ client accounts, and automated 90% of recurring KPI/MIS reporting — work that used to eat hours every week and now runs quietly in the background. I build the financial models and forecasts behind that data, and I've taken 100+ enterprise clients across VC, PE, and Corporate segments from raw setup to a fully working platform.",
+    "But the numbers are only half the job. What actually pulls me in is the inefficiency hiding inside a process — the report that shouldn't still be manual, the data gap that needs catching before a client ever sees it, the model that turns a chaotic business into something you can reason about on one page. It's unglamorous work, but it's the reason people trust the number in front of them.",
+    "My approach stays simple: question the data, fix the process, make the outcome easy to act on."
+  ],
   metrics: [
     {value:"1,000+",label:"funding & investment transactions reviewed"},
     {value:"90%",label:"recurring KPI / MIS reporting automated"},
@@ -40,7 +45,7 @@ const portfolio = {
 };
 const $=s=>document.querySelector(s);
 $("#heroTagline").textContent=portfolio.tagline;
-$("#aboutText").textContent=portfolio.about;
+$("#aboutText").innerHTML=portfolio.about.map(p=>`<p>${p}</p>`).join("");
 $("#year").textContent=new Date().getFullYear();
 $("#metricList").innerHTML=portfolio.metrics.map(x=>`<div class="metric"><span class="metric-label">${x.label}</span><span class="metric-value">${x.value}</span></div>`).join("");
 $("#aboutFacts").innerHTML=portfolio.facts.map(x=>`<span class="fact">${x}</span>`).join("");
